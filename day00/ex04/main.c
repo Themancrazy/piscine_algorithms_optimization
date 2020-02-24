@@ -1,9 +1,54 @@
+#include <stdio.h> //printf, scanf, ...
+#include <string.h> //memcpy, strlen, ...
+#include <unistd.h> //fork, write, sleep...
+#include <stdlib.h> //malloc, free, exit...
+
 #include "header.h"
 
-int main() 
-{ 
-    char *bible = "lord oh my dear jesus christ thank you for your blessing dear jesus. JESUS!"; 
-    char *jesus = "jesus"; 
-    printf("There's %d occurance(s) of the word %s.\n", howManyJesus(bible, jesus), jesus);
-    return 0; 
-} 
+int main(void)
+{
+	char *book;
+
+	//getting the file
+	book = readFile();
+
+	/*-------------------
+	launch your test here
+	--------------------*/
+	printf("How many \"%s\"? %d\n", "God", howManyJesus(book, "God"));
+	printf("How many \"%s\"? %d\n", "Lord", howManyJesus(book, "Lord"));
+
+	return (0);
+}
+
+
+
+// Function used for the test
+// Don't go further :)
+
+#define FILENAME "book.txt"
+
+void	leave(void){
+	dprintf(STDERR_FILENO, "failed to load the file.\n");
+	exit(0);
+}
+
+char	*readFile(void)
+{
+	char *fcontent = NULL;
+	int size = 0;
+	FILE *fp;
+
+	printf("Loading the file... ");
+	if (NULL == (fp = fopen(FILENAME, "r")))
+		leave();
+	fseek(fp, 0L, SEEK_END);
+	size = ftell(fp);
+	rewind(fp);
+	if (NULL == (fcontent = malloc(sizeof(char) * (size + 1))))
+		leave();
+	fread(fcontent, 1, size, fp);
+	fclose(fp);
+	printf("finish!\n");
+	return (fcontent);
+}
