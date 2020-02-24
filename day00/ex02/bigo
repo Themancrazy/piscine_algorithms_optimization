@@ -1,0 +1,2 @@
+Time Best: O(1) Worst: O(log n)
+Space O(1)

@@ -1,0 +1,2 @@
+Time Best: O(1) Worst: O(n) // most of the time it's instant, worst case it has to parse all LL.
+Space O(n) //because need to store all element in hash table
