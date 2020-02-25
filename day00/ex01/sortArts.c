@@ -20,7 +20,4 @@ void	sortArts(struct s_art** arts)
 		}
 		++i;
 	}
-	printf("\n\nsorted:\n");
-	for (int i = 0; i < 15; i++)
-		printf("\t-NAME: %s\tPRICE: %d\n", arts[i]->name, arts[i]->price);
 }
