@@ -1,18 +1,38 @@
 #ifndef HEADER_H
-#define HEADER_H
+# define HEADER_H
 
-#include <stdio.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include <stdio.h> //printf, scanf, ...
+#include <string.h> //memcpy, strlen, ...
+#include <unistd.h> //fork, write, sleep...
+#include <stdlib.h> //malloc, free, exit...
 
-struct      s_art
-{
-	char	*name;
-	int		price;
+/*--------------------------------
+  !! required structure
+  --------------------------------*/
+
+struct s_art {
+	char *name;
+	int price;
 };
 
-int		searchPrice(struct s_art **arts, int n, char *name);
+
+/*--------------------------------
+  :) function you must implement
+  --------------------------------*/
+
+int searchPrice(struct s_art **arts, int n, char *name);
+
+
+/*--------------------------------
+  ?? test function used in main 
+  --------------------------------*/
+
+struct s_art **getArts(int *n);
+
+
+/*--------------------------------
+  &  your own other function
+  --------------------------------*/
+
 
 #endif

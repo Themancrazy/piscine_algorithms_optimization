@@ -12,7 +12,7 @@ int		searchPrice(struct s_art **arts, int n, char *name)
 		else if (strcmp(arts[m]->name, name) > 0)
 			R = m - 1;
 		else
-			return m;
+			return arts[m]->price;
 	}
 	return (-1);
 }
